@@ -1,12 +1,29 @@
+/* HTML ELEMENTS */
+var winner;
+
+/* VARIABLES */
 var bgPos1 =0,bgPos2 =0,bgPos3 =0;
 var currentFruit1 = 1,currentFruit2 = 1,currentFruit3 = 1;
 var target1,target2,target3;
 var disabled = false;
 
+//===========================================================================================================
+//				Get the HTML elements on load
+//===========================================================================================================
+window.onload = function() {
+	winner = document.getElementById("winner");
+	pop_up = document.getElementById("pop_up");
+	slot1 = document.getElementById("slot1");
+	slot2 = document.getElementById("slot2");
+	slot3 = document.getElementById("slot3");
+	theme_colour1 = document.getElementById("theme_colour1");
+	outter_frame = document.getElementById("outter_frame");
+}
+/* spin the slots when user clicks */
 function spin(){
 
-	//the handle is disable when a spin is in progress and enabled after the results are processed.
-	if(disabled == false){
+	// the handle is disable when a spin is in progress and enabled after the results are processed.
+	if(!disabled){
 		disabled = true;
 		target1 = Math.floor(Math.random()*5+1); 
 		target2 = Math.floor(Math.random()*5+1); 
@@ -21,64 +38,72 @@ function spin(){
 		var movement3 = 1000+200*(target3-currentFruit3);
 		bgPos3 = bgPos3 - movement3;
 		
-		document.getElementById("slot1").style.backgroundPositionY = bgPos1 +"px";
-		document.getElementById("slot2").style.backgroundPositionY = bgPos2 +"px";
-		document.getElementById("slot3").style.backgroundPositionY = bgPos3 +"px";
+		slot1.style.backgroundPositionY = bgPos1 +"px";
+		slot2.style.backgroundPositionY = bgPos2 +"px";
+		slot3.style.backgroundPositionY = bgPos3 +"px";
 		
 		currentFruit1 = target1;
+		currentFruit2 = target2;
 		currentFruit2 = target2;
 		currentFruit3 = target3;
 
 		setTimeout(result(), 1000);
 	}
 }
+/* check result */
 function result(){
 	
 	if(currentFruit1 == currentFruit2||currentFruit1==currentFruit3||currentFruit2==currentFruit3){
-	document.getElementById("winner").style.backgroundImage = "url('confetti.gif')";
-	setTimeout(change1, 500);
+	winner.style.backgroundImage = "url('confetti.gif')";
+	
+	myLoop(0)// pass in a value of 'zero'
 	}
 	else{
 		disabled = false;
 	}
 }
-function change1(){
-	document.getElementById("winner").style.height= "25vh";
-	setTimeout(change2, 500);
+/* delayed loop to allow for the confetti to drop down the screen*/
+function myLoop(percentage){
+	
+	setTimeout(function () {
+		percentage = percentage+10;      		
+		show_confetti(percentage) 
+		
+		  if (percentage < 100) {            
+			 myLoop(percentage);            
+		  }
+		  else	 
+			setTimeout(reset, 1000);
+	   }, 100)
+	
 }
-function change2(){
-	document.getElementById("winner").style.height= "50vh";
-	setTimeout(change3, 500);
-}
-function change3(){
-	document.getElementById("winner").style.height= "75vh";
-	setTimeout(change4, 500);
-}
-function change4(){
-	document.getElementById("winner").style.height= "100vh";
-	setTimeout(reset, 1000);
+function show_confetti(percentage){
+	winner.style.height = percentage + "vh";
+	console.log("print: " + percentage)
 }
 function reset(){
 	disabled = false;
-	document.getElementById("winner").style.backgroundImage = "none";
-	document.getElementById("winner").style.height= "0vh";
+	winner.style.backgroundImage = "none";
+	winner.style.height= "0vh";
 }
+/* open/close the options */
 function open_popup(){
-	document.getElementById("pop_up").style.display ="block";
+	pop_up.style.display ="block";
 }
 function close_popup(){
-	document.getElementById("pop_up").style.display ="none";
+	pop_up.style.display ="none";
 }
+/* just a simple if/else */
 function change_theme_colour(){
 	
-	if (document.getElementById("theme_colour1").checked) {
+	if (theme_colour1.checked) {
 		document.body.style.backgroundColor="white";
-		document.getElementById("outter_frame").style.backgroundColor ="white";
-		document.getElementById("outter_frame").style.border= "1px solid black";
+		outter_frame.style.backgroundColor ="white";
+		outter_frame.style.border= "1px solid black";
 	}
 	else{
 		document.body.style.backgroundColor="orange";
-		document.getElementById("outter_frame").style.backgroundColor ="#bf4040";
-		document.getElementById("outter_frame").style.border= "1px solid #bf4040";
+		outter_frame.style.backgroundColor ="#bf4040";
+		outter_frame.style.border= "1px solid #bf4040";
 	}
 }
