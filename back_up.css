@@ -1,0 +1,73 @@
+body{
+	background-color:orange;
+}
+#settings_button{
+	position:absolute;
+	width:100px;
+	height:100px;
+	border:1px solid white;
+	
+}
+#setting_icon{
+	width:100px;
+	height:100px;
+	border:1px solid red;
+}
+#outter_frame{
+	position:absolute;
+	margin-left: calc((100vw - 680px)/2); /*This should be centered but a little bit off*/ 
+	margin-top: calc((100vh - (240px + 80px))/2); /*This is the view port height - the slot machine height+ the toolbar /2 */
+	width: 680px;
+	height: 240px;
+	border: 1px solid black;
+	border-radius: 25px;
+	background-color: #bf4040;
+}
+#inner_frame{
+	margin-left: 20px;
+	margin-top: 20px;
+	width:640px;
+	height:200px;
+	/*border: 1px solid white;*/
+	background-color:black;
+	border-radius: 15px;
+}
+#handle{
+	position:absolute;
+	margin-left:  calc(100vw -  (calc((100vw - 680px)/2))); /*This is the view port width - the distance of it to the outter frame*/
+	margin-top: calc((100vh - (240px + 0px))/2);
+	width:60px;
+	height:300px;
+	border: 1px solid white;
+}
+#ball{
+	width:40px;
+	height:40px;
+	margin-left:10px;
+	border-radius: 20px;
+	border: 1px solid blue;
+	position:absolute;
+	z-index:1;
+}
+#shaft{
+	width:20px;
+	height:200px;
+	margin-left: 20px;
+	border: 1px solid blue;
+	position:absolute;
+	z-index:2;
+	margin-top: 38px; /*little over lap to make it look as one with the ball*/
+}
+#base{
+	width:60px;
+	height:60px;
+	border: 1px solid blue;
+	position:absolute;
+	margin-top: 240px;
+}
+
+
+	height: 420px;         /*This is the outer(240) plus half the handle(150) and then half the base(30)*/
+	
+		margin-top: -390px; /*the height of it=(300), half the outter div height(240/2), and remove 30 as half the base of the shaft and make it negative*/
+

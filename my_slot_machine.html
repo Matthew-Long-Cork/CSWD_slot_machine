@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset= "utf-8">
+		<title>My Slot Machine</title>
+		
+		<link rel="stylesheet" type="text/css" href="my_slot_machine.css">
+		<script type="text/javascript" src="my_slot_machine.js"></script>				
+	</head>
+
+	<body>
+	<div id="winner"></div>
+		<div id="settings_button" title="open_popup" onclick="open_popup()">
+			<img src = "setting1.png" id="setting_icon" alt = "color">
+		</div>
+		
+		<div id="pop_up">
+
+			<form>
+				<input type="radio" name="theme_colour" id="theme_colour1" value="white" onClick="change_theme_colour()"><label>White</label>
+				<br>
+				<input type="radio" name="theme_colour" id="theme_colour2" value="orange" checked="checked" onClick="change_theme_colour()"><label>Orange</label><br>
+			</form>
+			
+			<div id="close_button" title="close_popup" onclick="close_popup()">
+				<p>X</p>
+			</div>
+		</div>
+		
+		<div id="whole_size">
+			<div id="outter_frame">
+				<div id= "inner_frame">
+					<div id= "slot1"></div>
+					<div id= "slot2"></div>
+					<div id= "slot3"></div>
+				</div>
+			</div>
+			
+			<div id ="handle" >
+				<div id="ball" title="spin" onclick="spin()"></div>
+				<div id="shaft"></div>
+				<div id="base"></div>
+			</div>
+		</div>
+			
+	</body>
+		
+
+	</html>

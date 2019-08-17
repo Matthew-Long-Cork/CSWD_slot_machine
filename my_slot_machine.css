@@ -1,0 +1,160 @@
+body{
+	background-color:orange;
+}
+#winner{
+	width:100vw;
+	height:0vh;
+	position:absolute;
+	z-index:1000;
+}
+#settings_button{
+	position:absolute;
+	width:100px;
+	height:100px;
+	/*border:1px solid white;*/
+}
+#setting_icon{
+	width:100px;
+	height:100px;
+	/*border:1px solid red;*/
+}
+/*this is the div that I centered on the screen*/
+#whole_size{
+	width: 750px;
+	height: 410px;         /*This is the half the outer(140) plus the handle(300) and then take half the base(30)*/
+	/*border: 1px solid white;*/
+	margin-left: calc((100vw - 750px)/2); /*This should be centered but a little bit off. Dont know why???*/ 
+	position:absolute;
+	margin-top: calc((100vh - (410px + 80px))/2); /*This is the view port height - the slot machine height+ the toolbar /2 */	
+}
+#outter_frame{
+	margin-top: 130px;
+	width: 695px;
+	height: 280px;
+	border: 1px solid #bf4040;
+	border-radius: 25px;
+	background-color: #bf4040;
+	position:relative;
+	z-index: -1;
+}
+#inner_frame{
+	margin-left: 20px;
+	margin-top: 20px;
+	width:655px;
+	height:240px;
+	/*border: 1px solid white;*/
+	background-color:black;
+	border-radius: 15px;
+	z-index:-2;
+	position:relative;
+}
+#handle{
+	position:relative;
+	width:60px;
+	height:300px;
+	/*border: 1px solid white;*/
+	margin-left: 695px;
+	margin-top: -410px; /*the height of it=(300), half the outter div height(240/2), and remove 30 as half the base of the shaft and make it negative*/
+}
+#ball{
+	width:40px;
+	height:40px;
+	margin-left:10px;
+	border-radius: 20px;
+	border: 1px solid black;
+	background-color: black;
+	position:absolute;
+	
+	/*when changed //////////////////////////
+	margin-top: 75px;
+	width:50px;
+	height:50px;
+	margin-left:5px;
+	border-radius: 25px;
+	*////////////////////////////////////////
+}
+#shaft{
+	
+	width:20px;
+	height:200px;
+	margin-left: 20px;
+	border: 1px solid black;
+	background-color: black;
+	position:absolute;
+	margin-top: 38px; /*little over lap to make it look as one with the ball*/
+	
+	/*when changed///////////////////////////
+	height:125px;
+	margin-top: 113px;
+	*////////////////////////////////////////
+	
+}
+#base{
+	width:59px;
+	margin-left:1px; /*this keeps the join flush and clean*/
+	height:60px;
+	position:absolute;
+	margin-top: 240px;
+	border: 1px solid black;
+	border-left:0px;
+	border-radius: 0px 15px 15px 0px;
+	background-color: grey;
+}
+#slot1,#slot2,#slot3{
+	width: 200px;
+	height: 200px;
+	/*border: 1px solid white;*/
+	background-color:white;
+	display: inline-block;
+	margin-top:20px;
+	border-radius: 15px;
+	background-image : url("sprite2.png");
+	background-repeat: repeat-y;
+	background-size: 200px;
+}
+#slot1{
+	margin-left:20px;
+}
+#slot2, #slot3{
+	margin-left:3px;
+}
+ #pop_up{
+	position:fixed;
+	z-index:2;
+	width:300px;
+	height:300px;
+	background-color:black;
+	border: 5px solid white;
+	border-radius:20px;					/*added 130px*/
+	margin-top: calc((100vh - (300px + 80px - 130px))/2); /*This is the view port height - the po up height + the toolbar /2  and then I move it to aline woth the slot machine windows, it was a cleaner look */	
+	margin-left: calc((100vw - 300px)/2); /*This should be centered but a little bit off. Dont know why???*/ 
+	display:none;
+}
+#close_button{
+	position:absolute;
+	width:40px;
+	height:40px;
+	border-radius:25px;
+	border: 5px solid white;
+	cursor:pointer;
+	text-align:center;
+	margin-top:75px;
+	margin-left: 125px;/*the div is 300 wide, (btutton is 40, plus margin 5+5.) = 50 wide */
+	
+}
+#close_button p{
+	font-weight:bold;
+	margin-top: 10px;
+	color:white;
+}
+#pop_up label{
+	color: white;
+	font-size: 1.5em;
+}
+#theme_colour1{
+	margin-top:50px;
+	margin-bottom:25px;
+}
+#theme_colour1,#theme_colour2{
+	margin-left:100px;
+}

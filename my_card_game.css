@@ -1,0 +1,5 @@
+#whole_size{
+	width: 750px;
+	height: 410px;         /*This is the half the outer(140) plus the handle(300) and then take half the base(30)*/
+	border: 1px solid red;
+}
